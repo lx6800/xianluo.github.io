@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Xian Luo | Academic Homepage</title>
+  <meta name="author" content="Xian Luo">
+  <meta name="description" content="Academic homepage of Xian Luo, interested in multimodal large language models, vision-language models, efficient inference, speculative decoding, and AI infrastructure.">
+
+  <style>
+    :root {
+      --primary: #2857a4;
+      --primary-dark: #1c3f79;
+      --primary-light: #edf3fc;
+      --text: #253247;
+      --muted: #66758a;
+      --border: #e2e8f0;
+      --background: #ffffff;
+      --surface: #f7f9fc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 40px, 1000px);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      min-height: 66px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-size: 19px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 21px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 76px 0 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 185px;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 10px 0 0;
+      font-size: clamp(36px, 5vw, 49px);
+      line-height: 1.25;
+      letter-spacing: -1.5px;
+    }
+
+    .chinese-name {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .affiliation {
+      margin-top: 21px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.65;
+    }
+
+    .hero-description {
+      max-width: 690px;
+      margin-top: 19px;
+      color: #526176;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .monogram {
+      width: 175px;
+      height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .monogram .letter {
+      color: var(--primary);
+      font-family: Georgia, serif;
+      font-size: 65px;
+      line-height: 1.25;
+    }
+
+    .monogram .caption {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    section {
+      padding: 43px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-kicker {
+      margin-bottom: 4px;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 22px;
+      font-size: 27px;
+      line-height: 1.4;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .research-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .research-card:hover {
+      border-color: #a9bfdf;
+      transform: translateY(-2px);
+    }
+
+    .research-number {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .research-card p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 5px 11px;
+      border: 1px solid #dce6f5;
+      border-radius: 5px;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      font-size: 13px;
+    }
+
+    .timeline {
+      margin-top: 5px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-left: 5px;
+      padding: 0 0 28px 24px;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      border-left-color: transparent;
+    }
+
+    .timeline-item::before {
+      position: absolute;
+      top: 9px;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      content: "";
+    }
+
+    .timeline-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .topic {
+      padding: 21px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topic:first-of-type {
+      padding-top: 0;
+    }
+
+    .topic:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .topic p {
+      color: #526176;
+      font-size: 15px;
+    }
+
+    .contact-box {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .contact-email {
+      overflow-wrap: anywhere;
+      font-weight: 650;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 26px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 32px, 1000px);
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 13px 0;
+        gap: 8px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 43px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .monogram {
+        width: 100px;
+        height: 105px;
+        grid-row: 1;
+      }
+
+      .monogram .letter {
+        font-size: 38px;
+      }
+
+      .monogram .caption {
+        font-size: 10px;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 32px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#home">Xian Luo</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#topics">Topics</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Hero -->
+  <div class="hero" id="home">
+    <div class="hero-grid">
+
+      <div>
+        <div class="eyebrow">Academic Homepage</div>
+        <h1>Xian Luo</h1>
+        <div class="chinese-name">罗贤</div>
+
+        <div class="affiliation">
+          School of Information Engineering<br>
+          Peking University
+        </div>
+
+        <p class="hero-description">
+          I am interested in multimodal large language models,
+          vision-language reasoning, and efficient model inference.
+          My research interests include speculative decoding,
+          multimodal inference acceleration, visual evidence
+          modeling, and AI infrastructure.
+        </p>
+
+        <div class="actions">
+          <a class="button button-primary"
+             href="mailto:2601212938@stu.pku.edu.cn">Email Me</a>
+          <a class="button" href="#research">Research Interests</a>
+        </div>
+      </div>
+
+      <div class="monogram" aria-label="Xian Luo">
+        <div class="letter">LX</div>
+        <div class="caption">XIAN LUO</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-kicker">Introduction</div>
+    <h2>About Me</h2>
+
+    <p>
+      Hello! I am Xian Luo (罗贤), affiliated with the School of
+      Information Engineering at Peking University.
+      I am interested in the intersection of multimodal learning,
+      large language models, and efficient AI systems.
+    </p>
+
+    <p>
+      I am particularly interested in how vision-language models
+      understand visual information, reason over multimodal evidence,
+      and generate reliable responses efficiently. I am also
+      interested in inference algorithms and system-level
+      optimizations that make large models faster and more practical.
+    </p>
+
+    <p>
+      This homepage introduces my research interests and ongoing
+      exploration. I will update it with publications, projects,
+      and other academic activities as they become available.
+    </p>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="section-kicker">Research Interests</div>
+    <h2>What I Am Interested In</h2>
+
+    <div class="research-grid">
+
+      <div class="research-card">
+        <div class="research-number">01 / MULTIMODAL AI</div>
+        <h3>Multimodal Large Language Models</h3>
+        <p>
+          Vision-language models, multimodal representation learning,
+          cross-modal alignment, visual instruction following,
+          and unified multimodal understanding.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-number">02 / EFFICIENT INFERENCE</div>
+        <h3>LLM Inference Acceleration</h3>
+        <p>
+          Speculative decoding, parallel token generation,
+          draft-and-verify algorithms, adaptive computation,
+          and latency reduction for autoregressive generation.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-number">03 / VISUAL REASONING</div>
+        <h3>Vision-Language Reasoning</h3>
+        <p>
+          Visual evidence selection, fine-grained image understanding,
+          temporal reasoning in video, and relationships between
+          visual observations and natural-language questions.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-number">04 / AI SYSTEMS</div>
+        <h3>AI Infrastructure and Model Optimization</h3>
+        <p>
+          Efficient attention computation, KV-cache optimization,
+          memory-efficient inference, GPU kernels, and
+          hardware-aware optimization for large models.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-number">05 / TRAINING</div>
+        <h3>Efficient Training and Adaptation</h3>
+        <p>
+          Parameter-efficient fine-tuning, knowledge distillation,
+          preference and process supervision, and training strategies
+          for improving model efficiency.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="research-number">06 / RELIABLE AI</div>
+        <h3>Reliable Multimodal Generation</h3>
+        <p>
+          Faithful visual grounding, hallucination reduction,
+          output consistency, and balancing generation quality
+          with inference efficiency.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="tag-list">
+      <span class="tag">Multimodal LLMs</span>
+      <span class="tag">VLMs</span>
+      <span class="tag">Speculative Decoding</span>
+      <span class="tag">Inference Acceleration</span>
+      <span class="tag">Video Understanding</span>
+      <span class="tag">Visual Reasoning</span>
+      <span class="tag">KV Cache</span>
+      <span class="tag">GPU Computing</span>
+      <span class="tag">AI Infrastructure</span>
+      <span class="tag">Knowledge Distillation</span>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="section-kicker">Academic Background</div>
+    <h2>Education</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Peking University</h3>
+        <div class="timeline-meta">
+          School of Information Engineering
+        </div>
+        <p>
+          Academic interests: multimodal intelligence,
+          large language models, and efficient inference.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research topics -->
+  <section id="topics">
+    <div class="section-kicker">Research Directions</div>
+    <h2>Topics I Would Like to Explore</h2>
+
+    <div class="topic">
+      <h3>1. Speculative Decoding for Vision-Language Models</h3>
+      <p>
+        Investigating how visual information can guide draft-token
+        generation, improve draft acceptance, and accelerate
+        multimodal autoregressive decoding while preserving
+        target-model generation behavior.
+      </p>
+    </div>
+
+    <div class="topic">
+      <h3>2. Question-Aware Visual Evidence Selection</h3>
+      <p>
+        Exploring methods that identify question-relevant visual
+        evidence and model relationships among visual features,
+        with the goal of improving multimodal reasoning and reducing
+        unnecessary computation.
+      </p>
+    </div>
+
+    <div class="topic">
+      <h3>3. Efficient Video-Language Understanding</h3>
+      <p>
+        Exploring efficient processing of long videos, temporal
+        information selection, event relationships, and
+        multimodal inference strategies for video question answering.
+      </p>
+    </div>
+
+    <div class="topic">
+      <h3>4. Hardware-Aware LLM Optimization</h3>
+      <p>
+        Studying the interaction between inference algorithms,
+        GPU execution, memory movement, attention computation,
+        and practical end-to-end latency.
+      </p>
+    </div>
+
+    <div class="topic">
+      <h3>5. Training and Inference Co-Design</h3>
+      <p>
+        Exploring how lightweight adaptation, distillation,
+        and inference-time verification can work together to
+        improve the efficiency and reliability of large models.
+      </p>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <div class="section-kicker">Publications</div>
+    <h2>Publications</h2>
+    <p class="muted">
+      This section will be updated as publications become available.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="section-kicker">Contact</div>
+    <h2>Get in Touch</h2>
+
+    <div class="contact-box">
+      <p>
+        I welcome academic discussions and research collaborations
+        related to multimodal learning, efficient inference,
+        and large-scale AI systems.
+      </p>
+
+      <p>
+        <strong>Institution:</strong><br>
+        School of Information Engineering, Peking University
+      </p>
+
+      <p>
+        <strong>Email:</strong><br>
+        <a class="contact-email"
+           href="mailto:2601212938@stu.pku.edu.cn">
+          2601212938@stu.pku.edu.cn
+        </a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Xian Luo · Academic Homepage
+  </div>
+</footer>
+
+</body>
+</html>
